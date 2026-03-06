@@ -1,0 +1,39 @@
+model:
+  name: "microsoft/trocr-small-printed"
+  max_target_length: 20
+
+dataset:
+  root: "dataset"
+  annotations_file: "dataset/annotations.json"
+  images_dir: "dataset/images"
+  train_split: 0.80
+  val_split: 0.10
+  test_split: 0.10
+  random_seed: 42
+
+training:
+  output_dir: "checkpoints"
+  num_epochs: 10
+  batch_size: 2
+  gradient_accumulation_steps: 8
+  learning_rate: 5.0e-5
+  weight_decay: 0.01
+  warmup_steps: 200
+  fp16: false
+  bf16: false
+  dataloader_num_workers: 0
+  save_total_limit: 3
+  save_strategy: "epoch"
+  eval_strategy: "epoch"
+  load_best_model_at_end: true
+  metric_for_best_model: "cer"
+  greater_is_better: false
+  predict_with_generate: true
+  generation_max_length: 20
+  logging_steps: 50
+  report_to: "none"
+
+inference:
+  checkpoint_path: "checkpoints/best_model"
+  max_new_tokens: 20
+  num_beams: 4

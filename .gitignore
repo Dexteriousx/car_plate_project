@@ -1,0 +1,21 @@
+# Dataset (too large for git)
+dataset/images/
+dataset/annotations.json
+
+# Model checkpoints (large binary files)
+checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# HuggingFace cache
+.cache/
+
+# IDE
+.vscode/
+.idea/
