@@ -62,7 +62,7 @@ def setup_model_and_processor(config: dict):
     print(f"[Setup] Model parameters: {total_params:,}")
     return processor, model
 
-
+#builder
 def build_compute_metrics(processor: TrOCRProcessor):
     """
     Returns compute_metrics for Seq2SeqTrainer.
